@@ -1,6 +1,5 @@
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
 lvim.colorscheme = "lunar"
 
 -- Disable mouse entirely
@@ -9,7 +8,7 @@ vim.opt.wrap = true
 vim.opt.showmode = true
 vim.opt.relativenumber = true
 vim.opt.updatetime = 750
-
+vim.opt.hidden = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -44,6 +43,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "prisma",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
