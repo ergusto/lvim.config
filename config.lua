@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.colorscheme = "tokyonight-moon"
+lvim.colorscheme = "tokyonight-storm"
 
 -- Disable mouse entirely
 vim.opt.mouse = ""
