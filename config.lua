@@ -54,3 +54,27 @@ local function open_nvim_tree()
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+
+lvim.plugins = {
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup({
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+        })
+        require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+      end, 100)
+    end,
+  },
+  {
+    "ggandor/leap.nvim",
+    name = "leap",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+  },
+}
