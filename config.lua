@@ -1,6 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.colorscheme = "tokyonight-storm"
+lvim.colorscheme = "tokyonight-day"
 
 -- Disable mouse entirely
 vim.opt.mouse = ""
@@ -27,6 +27,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
