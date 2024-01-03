@@ -1,6 +1,7 @@
 -- general
 lvim.log.level = "warn"
 lvim.colorscheme = "tokyonight-day"
+lvim.format_on_save.enabled = true
 
 -- Disable mouse entirely
 vim.opt.mouse = ""
