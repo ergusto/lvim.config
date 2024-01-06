@@ -53,9 +53,4 @@ lvim.plugins = {
   {
     "shaunsingh/nord.nvim"
   },
-  {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot.lua" },
-  },
 }
