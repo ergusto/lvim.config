@@ -1,8 +1,6 @@
 -- general
 lvim.log.level = "warn"
-lvim.colorscheme = "tokyonight-day"
-lvim.format_on_save.enabled = true
-
+lvim.colorscheme = "nord"
 -- Disable mouse entirely
 vim.opt.mouse = ""
 vim.opt.wrap = true
@@ -29,21 +27,16 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
-  "c",
   "javascript",
   "json",
-  "lua",
   "python",
   "typescript",
   "tsx",
   "css",
-  "rust",
-  "java",
   "yaml",
   "prisma",
 }
@@ -59,24 +52,21 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 lvim.plugins = {
   {
+    "shaunsingh/nord.nvim"
+  },
+  {
     "zbirenbaum/copilot-cmp",
     event = "InsertEnter",
     dependencies = { "zbirenbaum/copilot.lua" },
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup({
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        })
-        require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
-      end, 100)
-    end,
   },
   {
-    "ggandor/leap.nvim",
-    name = "leap",
+   'nvimdev/lspsaga.nvim',
     config = function()
-      require("leap").add_default_mappings()
+        require('lspsaga').setup({})
     end,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter', -- optional
+        'nvim-tree/nvim-web-devicons'     -- optional
+    }
   },
 }
