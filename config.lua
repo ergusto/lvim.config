@@ -10,22 +10,19 @@ vim.opt.relativenumber = true
 vim.opt.updatetime = 750
 vim.opt.hidden = true
 
--- keymappings [view all the defaults by pressing <leader>Lk]
+-- keymappings
 lvim.leader = "space"
 
--- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- Buffer navigation
 lvim.keys.normal_mode["<S-Tab>"] = ":BufferLineCyclePrev<CR>"
 lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 
--- jk to escape in normal mode
+-- jk to escape in insert mode
 vim.keymap.set("i", "jk", "<Esc>")
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = true
+lvim.builtin.alpha.active = false
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
 
@@ -60,15 +57,5 @@ lvim.plugins = {
     "zbirenbaum/copilot-cmp",
     event = "InsertEnter",
     dependencies = { "zbirenbaum/copilot.lua" },
-  },
-  {
-   'nvimdev/lspsaga.nvim',
-    config = function()
-        require('lspsaga').setup({})
-    end,
-    dependencies = {
-        'nvim-treesitter/nvim-treesitter', -- optional
-        'nvim-tree/nvim-web-devicons'     -- optional
-    }
   },
 }
