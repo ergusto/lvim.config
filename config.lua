@@ -1,6 +1,7 @@
 -- general
 lvim.log.level = "warn"
 lvim.colorscheme = "nord"
+
 -- Disable mouse entirely
 vim.opt.mouse = ""
 vim.opt.wrap = true
