@@ -53,11 +53,16 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 lvim.plugins = {
   {
-    "shaunsingh/nord.nvim",
+    "gbprod/nord.nvim",
+    lazy = false,
     priority = 1000,
-    init = function()
-      vim.g.nord_bold = false -- border between splits
+    config = function()
+      require("nord").setup({})
+      vim.cmd.colorscheme("nord")
     end,
+  },
+  install = {
+    colorscheme = { "nord" },
   },
 
   {
