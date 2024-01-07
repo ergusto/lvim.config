@@ -20,9 +20,7 @@ lvim.keys.normal_mode["<Tab>"] = ":BufferLineCycleNext<CR>"
 -- jk to escape in insert mode
 vim.keymap.set("i", "jk", "<Esc>")
 
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = false
+-- nvimtree options
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
 
@@ -43,6 +41,7 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
+-- open nvim-tree on startup
 local function open_nvim_tree()
   require("nvim-tree.api").tree.open()
 end
