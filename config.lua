@@ -61,9 +61,6 @@ lvim.plugins = {
       vim.cmd.colorscheme("nord")
     end,
   },
-  install = {
-    colorscheme = { "nord" },
-  },
 
   {
     "nvimdev/guard.nvim",
