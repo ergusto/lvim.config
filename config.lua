@@ -24,7 +24,7 @@ vim.keymap.set("i", "jk", "<Esc>")
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
 
--- white list of language servers
+-- language servers installed by default
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "javascript",
