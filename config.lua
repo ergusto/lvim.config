@@ -41,6 +41,9 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
 
+lvim.builtin.gitsigns.opts.current_line_blame = true
+lvim.builtin.gitsigns.opts.current_line_blame_opts.virt_text_pos = 'right_align'
+
 -- open nvim-tree on startup
 local function open_nvim_tree()
   require("nvim-tree.api").tree.open()
