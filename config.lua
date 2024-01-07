@@ -66,4 +66,9 @@ lvim.plugins = {
       })
     end,
   },
+
+  {
+    "ethanholz/nvim-lastplace",
+    config = true,
+  },
 }
