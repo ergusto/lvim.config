@@ -53,7 +53,11 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 lvim.plugins = {
   {
-    "shaunsingh/nord.nvim"
+    "shaunsingh/nord.nvim",
+    priority = 1000,
+    init = function()
+      vim.g.nord_bold = false -- border between splits
+    end,
   },
 
   {
