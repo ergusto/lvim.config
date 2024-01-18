@@ -24,7 +24,16 @@ vim.keymap.set("i", "jk", "<Esc>")
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
 
--- language servers installed by default
+lvim.format_on_save = true
+
+-- Config for predefined plugins
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.adaptive_size = true
+
+-- treesitter parsers
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "javascript",
@@ -80,4 +89,13 @@ lvim.plugins = {
     "ethanholz/nvim-lastplace",
     config = true,
   },
+
+  {
+  "f-person/git-blame.nvim",
+  event = "BufRead",
+  config = function()
+    vim.cmd "highlight default link gitblame SpecialComment"
+    require("gitblame").setup { enabled = false }
+  end,
+},
 }
