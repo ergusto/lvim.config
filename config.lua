@@ -9,6 +9,7 @@ vim.opt.showmode = true
 vim.opt.relativenumber = true
 vim.opt.updatetime = 750
 vim.opt.hidden = true
+vim.opt.autochdir = false
 
 -- keymappings
 lvim.leader = "space"
@@ -49,6 +50,8 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.treesitter.matchup.enable = true
+lvim.builtin.treesitter.rainbow.enable = true
 
 lvim.builtin.gitsigns.opts.current_line_blame = true
 lvim.builtin.gitsigns.opts.current_line_blame_opts.virt_text_pos = 'right_align'
@@ -98,4 +101,40 @@ lvim.plugins = {
     require("gitblame").setup { enabled = false }
   end,
 },
+   {
+    "nacro90/numb.nvim",
+    event = "BufRead",
+    config = function()
+    require("numb").setup {
+      show_numbers = true, -- Enable 'number' for the window while peeking
+      show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+    }
+    end,
+  },
+
+  {
+    "andymass/vim-matchup",
+    event = "CursorMoved",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+
+  {
+    "mrjones2014/nvim-ts-rainbow",
+  },
+
+  {
+    "itchyny/vim-cursorword",
+      event = {"BufEnter", "BufNewFile"},
+      config = function()
+        vim.api.nvim_command("augroup user_plugin_cursorword")
+        vim.api.nvim_command("autocmd!")
+        vim.api.nvim_command("autocmd FileType NvimTree,lspsagafinder,dashboard,vista let b:cursorword = 0")
+        vim.api.nvim_command("autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif")
+        vim.api.nvim_command("autocmd InsertEnter * let b:cursorword = 0")
+        vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
+        vim.api.nvim_command("augroup END")
+        end
+  },
 }
