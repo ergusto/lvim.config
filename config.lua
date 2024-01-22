@@ -94,47 +94,35 @@ lvim.plugins = {
   },
 
   {
-  "f-person/git-blame.nvim",
-  event = "BufRead",
-  config = function()
-    vim.cmd "highlight default link gitblame SpecialComment"
-    require("gitblame").setup { enabled = false }
-  end,
-},
-   {
+    "f-person/git-blame.nvim",
+    event = "BufRead",
+    config = function()
+      vim.cmd "highlight default link gitblame SpecialComment"
+      require("gitblame").setup { enabled = false }
+    end,
+  },
+  {
     "nacro90/numb.nvim",
     event = "BufRead",
     config = function()
-    require("numb").setup {
-      show_numbers = true, -- Enable 'number' for the window while peeking
-      show_cursorline = true, -- Enable 'cursorline' for the window while peeking
-    }
+      require("numb").setup {
+        show_numbers = true,  -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+      }
     end,
-  },
-
-  {
-    "andymass/vim-matchup",
-    event = "CursorMoved",
-    config = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  },
-
-  {
-    "mrjones2014/nvim-ts-rainbow",
   },
 
   {
     "itchyny/vim-cursorword",
-      event = {"BufEnter", "BufNewFile"},
-      config = function()
-        vim.api.nvim_command("augroup user_plugin_cursorword")
-        vim.api.nvim_command("autocmd!")
-        vim.api.nvim_command("autocmd FileType NvimTree,lspsagafinder,dashboard,vista let b:cursorword = 0")
-        vim.api.nvim_command("autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif")
-        vim.api.nvim_command("autocmd InsertEnter * let b:cursorword = 0")
-        vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
-        vim.api.nvim_command("augroup END")
-        end
+    event = { "BufEnter", "BufNewFile" },
+    config = function()
+      vim.api.nvim_command("augroup user_plugin_cursorword")
+      vim.api.nvim_command("autocmd!")
+      vim.api.nvim_command("autocmd FileType NvimTree,lspsagafinder,dashboard,vista let b:cursorword = 0")
+      vim.api.nvim_command("autocmd WinEnter * if &diff || &pvw | let b:cursorword = 0 | endif")
+      vim.api.nvim_command("autocmd InsertEnter * let b:cursorword = 0")
+      vim.api.nvim_command("autocmd InsertLeave * let b:cursorword = 1")
+      vim.api.nvim_command("augroup END")
+    end
   },
 }
