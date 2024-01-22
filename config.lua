@@ -28,11 +28,6 @@ lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.format_on_save = true
 
 -- Config for predefined plugins
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.builtin.project.manual_mode = true
 
 -- treesitter parsers
