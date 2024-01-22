@@ -33,6 +33,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.adaptive_size = true
+lvim.builtin.project.manual_mode = true
 
 -- treesitter parsers
 lvim.builtin.treesitter.ensure_installed = {
@@ -106,7 +107,7 @@ lvim.plugins = {
     event = "BufRead",
     config = function()
       require("numb").setup {
-        show_numbers = true,  -- Enable 'number' for the window while peeking
+        show_numbers = true,    -- Enable 'number' for the window while peeking
         show_cursorline = true, -- Enable 'cursorline' for the window while peeking
       }
     end,
@@ -125,4 +126,6 @@ lvim.plugins = {
       vim.api.nvim_command("augroup END")
     end
   },
+
+  { "hrsh7th/cmp-nvim-lsp-signature-help" },
 }
