@@ -127,4 +127,39 @@ lvim.plugins = {
     event = "BufRead",
     config = function() require "lsp_signature".on_attach() end,
   },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({ "css", "scss", "html", "javascript", "typescript" }, {
+        RGB = true,      -- #RGB hex codes
+        RRGGBB = true,   -- #RRGGBB hex codes
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true,   -- CSS rgb() and rgba() functions
+        hsl_fn = true,   -- CSS hsl() and hsla() functions
+        css = true,      -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true,   -- Enable all CSS *functions*: rgb_fn, hsl_fn
+      })
+    end,
+  },
+  {
+    'tzachar/highlight-undo.nvim',
+    opts = {
+      duration = 300,
+      undo = {
+        hlgroup = 'HighlightUndo',
+        mode = 'n',
+        lhs = 'u',
+        map = 'undo',
+        opts = {}
+      },
+      redo = {
+        hlgroup = 'HighlightUndo',
+        mode = 'n',
+        lhs = '<C-r>',
+        map = 'redo',
+        opts = {}
+      },
+      highlight_for_count = true,
+    },
+  },
 }
