@@ -42,6 +42,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "yaml",
   "prisma",
   "lua",
+  "tailwindcss",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -127,6 +128,7 @@ lvim.plugins = {
     event = "BufRead",
     config = function() require "lsp_signature".on_attach() end,
   },
+
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -141,6 +143,7 @@ lvim.plugins = {
       })
     end,
   },
+
   {
     'tzachar/highlight-undo.nvim',
     opts = {
@@ -162,4 +165,16 @@ lvim.plugins = {
       highlight_for_count = true,
     },
   },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    event = "InsertEnter",
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+        require("copilot_cmp").setup()
+      end, 100)
+    end,
+  }
 }
